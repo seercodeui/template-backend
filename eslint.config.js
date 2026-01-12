@@ -3,23 +3,14 @@ import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 
 export default [
-  // игноры
-  {
-    ignores: ['dist/**', 'node_modules/**', 'coverage/**'],
-  },
+  { ignores: ['dist/**', 'node_modules/**', 'coverage/**'] },
 
-  // базовые рекомендации
   js.configs.recommended,
-
-  // TypeScript (рекомендованные правила)
   ...tseslint.configs.recommended,
 
-  // твои правила для TS/TSX файлов
   {
     files: ['**/*.{ts,tsx}'],
-    plugins: {
-      import: importPlugin,
-    },
+    plugins: { import: importPlugin },
     languageOptions: {
       parserOptions: {
         ecmaVersion: 2020,
@@ -28,18 +19,18 @@ export default [
     },
     settings: {
       'import/resolver': {
-        typescript: true,
+        // важно: этот резолвер должен быть установлен
+        typescript: {
+          alwaysTryTypes: true,
+        },
+        // можно оставить и node, чтобы резолвить .js расширения
+        node: true,
       },
     },
     rules: {
-      // Quotes: JS/TS single, JSX double
       quotes: ['error', 'single', { avoidEscape: true }],
-      'jsx-quotes': ['error', 'prefer-double'],
-
-      // TS
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
 
-      // Import order
       'import/order': [
         'warn',
         {
