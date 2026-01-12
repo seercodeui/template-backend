@@ -1,8 +1,8 @@
 import http from 'http';
 
-import { createApp } from './app.js';
-import { pool } from './config/db.js';
-import { env } from './config/env.js';
+import { createApp } from './app';
+import { pool } from './config/db';
+import { env } from './config/env';
 
 const app = createApp();
 const server = http.createServer(app);
@@ -24,7 +24,7 @@ async function start() {
   }
 }
 
-await start();
+start();
 
 /**
  * Graceful shutdown

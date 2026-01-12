@@ -2,10 +2,10 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 
-import { env } from './config/env.js';
-import { errorMiddleware } from './middlewares/error.middleware.js';
-import { notFound } from './middlewares/notFound.middleware.js';
-import { router } from './routes/index.js';
+import { env } from './config/env';
+import { errorMiddleware } from './middlewares/error.middleware';
+import { notFound } from './middlewares/notFound.middleware';
+import { router } from './routes';
 
 export function createApp() {
   const app = express();

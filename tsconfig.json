@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
 
     "outDir": "dist",
     "rootDir": "src",
@@ -12,7 +12,8 @@
     "skipLibCheck": true,
     "sourceMap": true,
 
-    "types": ["node", "vitest/globals"]
+    "types": ["node", "vitest/globals"],
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src", "tests"]
 }
