@@ -1,12 +1,12 @@
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import tslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 
 export default [
   { ignores: ['dist/**', 'node_modules/**', 'coverage/**'] },
 
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tslint.configs.recommended,
 
   {
     files: ['**/*.{ts,tsx}'],
